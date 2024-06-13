@@ -2,8 +2,8 @@ local map = vim.keymap.set
 
 
 
--- map("i", "jk", "<ESC>")
 
+-- movement
 map("i", "<C-b>", "<ESC>^i", { desc = "Move Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "Move End of line" })
 
@@ -57,6 +57,9 @@ map(
 )
 
 
+-- oil
+map("n", "-", "<cmd>Oil ..<CR>", { desc = "Open parent directory" })
+map("n", "_", "<cmd>Oil<CR>", { desc = "Open current directory" })
 
 
 

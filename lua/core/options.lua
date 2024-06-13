@@ -7,7 +7,7 @@ local g = vim.g
 
 g.mapleader = " "
 
-g.toggle_theme_icon = "   "
+vim.cmd("colorscheme 0xbf")
 
 -- disable providers for unused languages
 g.loaded_node_provider = 0

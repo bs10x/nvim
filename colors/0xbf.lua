@@ -3,7 +3,7 @@
 -- vim.cmd([[ colorscheme vim ]])
 -----------------------------------------------------------------------------
 
-vim.cmd.highlight('clear')
+-- vim.cmd.highlight('clear')
 vim.g.colors_name = '0xbf'
 
 -- command fails in light mode, succeeds in dark mode
@@ -191,7 +191,6 @@ hi('@tag',               { link = 'Tag' })
 hi('@tag.builtin',       { link = 'Special' })
 
 -- LSP semantic tokens
-
 hi('@lsp.type.class',         { link = 'Structure' })
 hi('@lsp.type.comment',       { link = 'Comment' })
 hi('@lsp.type.decorator',     { link = 'Function' })
@@ -211,6 +210,7 @@ hi('@lsp.type.variable',      { link = 'Identifier' })
 
 if vim.o.background == 'light' then
   -- Default colors only used with a light background.
+  -- hi('Normal', 		 { bg = 'White', 							   ctermbg = 'White' })
   hi('EndOfBuffer',  { fg = 'Black',                               ctermfg = 'Black' })   -- WIP ---------------
   hi('ColorColumn',  { bg = 'LightRed',                            ctermbg = 'LightRed' })
   hi('CursorColumn', { bg = 'Grey90',                              ctermbg = 'LightGrey' })
@@ -251,7 +251,8 @@ if vim.o.background == 'light' then
   hi('Ignore',       {                                             ctermfg = 'White' })
 else
   -- Default colors only used with a dark background.
-  hi('EndOfBuffer',  { fg = 'White',                              ctermfg = 'White' })  -- WIP ---------------
+  -- hi('Normal', 		 { bg = 'Black', 							  ctermbg = 'Black' })
+  hi('EndOfBuffer',  { fg = 'White',                              ctermfg = 'White' })
   hi('ColorColumn',  { bg = 'DarkRed',                            ctermbg = 'DarkRed' })
   hi('CursorColumn', { bg = 'Grey40',                             ctermbg = 'DarkGrey' })
   hi('CursorLine',   { bg = 'Grey40',                             cterm = { underline = true } })
