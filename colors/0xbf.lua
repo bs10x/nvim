@@ -3,9 +3,20 @@
 -- vim.cmd([[ colorscheme vim ]])
 -----------------------------------------------------------------------------
 
--- vim.cmd.highlight('clear')
-vim.g.colors_name = '0xbf'
 
+local hi = function(name, val)
+  -- Force links
+  val.force = true
+
+  -- Make sure that `cterm` attribute is not populated from `gui`
+  val.cterm = val.cterm or {}
+
+  -- Define global highlight
+  vim.api.nvim_set_hl(0, name, val)
+end
+
+vim.cmd.highlight('clear')
+vim.g.colors_name = '0xbf'
 
 -- command fails in light mode, succeeds in dark mode
 local is_darwin = vim.fn.has('mac') == 1
@@ -21,16 +32,6 @@ else
   end	
 end
 
-local hi = function(name, val)
-  -- Force links
-  val.force = true
-
-  -- Make sure that `cterm` attribute is not populated from `gui`
-  val.cterm = val.cterm or {}
-
-  -- Define global highlight
-  vim.api.nvim_set_hl(0, name, val)
-end
 
 -- General
 hi('Normal', { bg = 'none' })
