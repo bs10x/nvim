@@ -6,12 +6,18 @@
 -- vim.cmd.highlight('clear')
 vim.g.colors_name = '0xbf'
 
+
 -- command fails in light mode, succeeds in dark mode
-local theme = vim.fn.system('defaults read -g AppleInterfaceStyle >/dev/null 2>&1')
-if vim.v.shell_error ~= 0 then
-  vim.o.background = 'light'
-else
+local is_darwin = vim.fn.has('mac') == 1
+if not is_darwin then
   vim.o.background = 'dark'
+else
+  local theme = vim.fn.system('defaults read -g AppleInterfaceStyle >/dev/null 2>&1')
+  if vim.v.shell_error ~= 0 then
+    vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
+  end	
 end
 
 local hi = function(name, val)
