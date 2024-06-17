@@ -11,6 +11,7 @@ vim.g.colors_name = '0xbf'
 local is_darwin = vim.fn.has('mac') == 1
 if not is_darwin then
   vim.o.background = 'dark'
+  hi('Normal', 		 { bg = 'Black', 							  ctermbg = 'Black' })
 else
   local theme = vim.fn.system('defaults read -g AppleInterfaceStyle >/dev/null 2>&1')
   if vim.v.shell_error ~= 0 then
